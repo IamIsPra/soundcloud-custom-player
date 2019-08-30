@@ -523,6 +523,9 @@
           // create the playlist
           $.each(tracks, function(index, track) {
             var active = index === 0;
+            
+            // for multiple instances of the player
+            $list = $('<ol class="sc-trackslist"></ol>').appendTo($player);
             // create an item in the playlist
             $('<li><a href="' + track.permalink_url +'">' + track.title + '</a><span class="sc-track-duration">' + timecode(track.duration) + '</span></li>').data('sc-track', {id:index}).toggleClass('active', active).appendTo($list);
             // create an item in the artwork list
